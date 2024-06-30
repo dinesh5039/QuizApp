@@ -1,0 +1,131 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --hue-neutral: 200;
+  --hue-wrong: 0;
+  --hue-correct: 145;
+  --hue-congrats: 60;
+  --hue-lost: 0;
+}
+
+body {
+  --hue: var(--hue-neutral);
+  padding: 0;
+  margin: 0;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(var(--hue), 100%, 20%);
+  transition: background-color 0.5s;
+}
+
+body.correct {
+  --hue: var(--hue-correct);
+}
+
+body.wrong {
+  --hue: var(--hue-wrong);
+}
+
+body.congrats {
+  --hue: var(--hue-congrats);
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLx6gmeBNGxM-myI-cAeXoKsjf4bqo0JUo_g&s');
+  background-size: cover;
+}
+
+body.lost {
+  --hue: var(--hue-lost);
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQkAAACUCAMAAAC3OSx/AAAAnFBMVEUAAAD///8EBAT//f8AAAP///2Tk5OGhobk5OT/+f9wb3G2tLX/+/+GhIb6+vrv4vP89f/R0dFNTU3FxcXs4u5lZGYnJyfOxs8cHBy1r7YfHB+qpamEfoXr6esyODSso60TEhQyLzGqqqqhoaHc29xXVldBQUH08PZ7e3vHu8RMR0o6ODtVUFTb192gm5/n0+G2qbjMvs6RjJJKRFPfQJ8jAAAE6klEQVR4nO3YDXeiOBQG4FyiIBApKtpaywp+RWuhs+7//297b1Bb7XSmO53tsue8z5zTGkhSeIkhGaUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOCXeecPnud+Ks87nXn96eXzZXPvpe2x6sWZcx9NJc+7btpa3vdLL0H85PJfn5a618F95tr+deMg8O+VKqIgCKS8DoI+46MFX/mQfw/dHfDx7fDqXvbbgCsGwfp8pAiaI0E/avLbut64v0hOb5tz7mcQ3X3hbX5ATAkdSlWMKEn6HMki0UYbozX5fNZPiHaP8jRj6ibT/WXbbU6am9FgXJwOETfUfMj0nlw5J2NMaAz1xlzqEZ/scvfcGeV9r1WjJCaifC1JkK7K9XJA1to0tVZXy41LIqtVp+OSqLaXbTeLnPiwNbOJkrRKf0lhlqZhkmi7izzlL7uaO+PutL19uOPoDP851z1HVrVrUMR8SXbcJJGXPnXJ7Oas0iZZ3ksSN7NTEnn/qvFmlnD9Kt4WrjhcJZQ+f5vPZjEZPVirngQ5nc3nUx4aq6hQBxkV2bf51JKh7K5tY8JkF0lQpIpCjWSsjC+S0NnDdetx0jVhrAr5zLNKj7rhn/dFUexJG5qpXBMNNly+nz4/Z7elKgfcTb73yrp6zqq2JaHfJsHeJkHvJJFOTyVOgsytjPk91zacBM8j1aOcKqe7nT9RE06im5dcrndxXXzVTX7ImzGhT0l0fymJ0CVRcj9m5tVVoqvD5OXRSxIkSTQ6rRsTa7lz/VvGRHpOIpzfq5nV5GaXjif/JAmeMSdNdT7QpiSiPNR57Nc9CulyTLxKQv1gntAXSXTl29FRfxyTUDW/RPOZ3z+uyiSJbrKsl8v+pFWThIh6/GXmB56GtV98Ogn37XiVhFfLXEF51Kww3ZiQP0e5P/nCm/wAflLrleUrM2QKXkl9ekxcJuGp4mDJapP7roYkYUJ+pRKthl91jx/ETypa8eyQ1IdCkqDfNSbIyJjgKePhcJA5yK3KXBK2PrBted3Zf42jGDTrTP7460msB/73vh0NXlualX/XJKHz1mVwVjVJdH6cxDvvDpeE521ptX6TBK+pClev5oVWr18084QkIWfaNmPy9ci3w65lzngvieO6490kxosBJcvN8d2hjkmoRRzP3AAoeJ9Bo/KcxGQZx8uWTZl8lZxE8+2QvWdiTqtta7NxkFvZgXE5ptBeJ9E5ryf6nFNab1aJTm95JHT2PBukc9l3JIcJP/2St2R2VHZOSWx465YcPO6hTXzeUfIuLJZdwDC2xowWrKerLIs209ykt1Je6Zub7GoH9lSPJIlqsRho7qG+DyoKK6kdk83SebFd8cIqlrKxWTa6Wy56MnnGi9jKq/WuZUm4VzxfWCz/NfN4G8rGmY+Edv6wV4+xMe79T+nN7uHxsuVW9tahO280vxJU0U90U1ub6jAuVJ9foK5suBzJ4NPG1eDkZFfepiT45nNqTGRVvR8cSyH9JefLmE4HDtdtJ3VyWigJmU+iU4FGrkpkTxVG/CYZ5q+qt25MeGocNTy30HqKTuQl2FGbc3nzpm05jl55lNl3eyqt3QarONdYF9zgov64ZfPED95l//g6f/ZevD7faVUSAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPB/8DeBxWZrLgv4ngAAAABJRU5ErkJggg==');
+  background-size: cover;
+}
+
+.container {
+  width: 800px;
+  max-width: 80%;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 10px 2px;
+}
+
+#question-container {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}
+
+.btn-grid {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.btn {
+  --hue: var(--hue-neutral);
+  border: 1px solid hsl(var(--hue), 100%, 30%);
+  background-color: hsl(var(--hue), 100%, 50%);
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: white;
+  outline: none;
+  font-size: 1.2rem;
+}
+
+.btn:hover {
+  border-color: black;
+}
+
+.btn.correct {
+  --hue: var(--hue-correct);
+  color: black;
+}
+
+.btn.wrong {
+  --hue: var(--hue-wrong);
+}
+
+.start-btn, .next-btn {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 10px 20px;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hide {
+  display: none;
+}
+
+#score-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#score {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.message {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+}
+#timer {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
